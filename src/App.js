@@ -12,6 +12,9 @@ export default function App() {
       <MyThirdComponent />
       <br />
       <MyDyanamicInputCompoent />
+      <div>
+        
+      </div>
     </div>
   );
 }
