@@ -79,8 +79,8 @@ const MyDyanamicInputCompoent = () => {
     setTweet("");
   };
   return (
-    <div>
-      <head>Tweets</head>
+    <div className="p-3">
+      <h1>Tweets</h1>
       <div>
         <input
           type="text"
@@ -97,7 +97,7 @@ const MyDyanamicInputCompoent = () => {
         <input type="button" onClick={addNewItem} value="Tweet here" />
       </div>
       {list.map((item, index) => (
-        <div key={index} className="bg-primary">
+        <div key={index} className="bg-primary m-3 rounded-3">
           {item}
         </div>
       ))}
