@@ -2,11 +2,13 @@ import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createUserAction, updateUserAction } from "../redux/UserReducer";
+import {UserAppNavBar} from "../common/UserNavBar";
+import { AppNavBar } from "../common/AdminNavBar";
 //capture information
 export function UserUpsert() {
   const dispatch = useDispatch();
   const formUser = useRef();
-  //const history = useHistory();
+  const history = useHistory();
 
   const state = useSelector((state) => state);
   console.log(state);
@@ -130,6 +132,13 @@ export function UserUpsert() {
           userMobile,
         })
       );
+      if(state.UserLogin.loginAction===true){
+        state.UserLogin.userRefDetails.userName=userName;
+        state.UserLogin.userRefDetails.userPassword=userPassword;
+        state.UserLogin.userRefDetails.userEmail=userEmail;
+        state.UserLogin.userRefDetails.userMobile=userMobile;
+       history.push("/user");
+      }
 
       // reset the form
       setUserName("");
@@ -141,6 +150,8 @@ export function UserUpsert() {
   };
 
   return (
+    <>
+    {state.UserLogin.userRefDetails.userType==="user" ? (<UserAppNavBar/>):(<AppNavBar></AppNavBar>)}
     <div className="row">
       <div className="col-3 col-md-3 d-none d-md-block"></div>
       <div className="col-12 col-md-6">
@@ -255,5 +266,6 @@ export function UserUpsert() {
       </div>
       <div className="col-3 col-md-3 d-none d-md-block"></div>
     </div>
+    </>
   );
 }

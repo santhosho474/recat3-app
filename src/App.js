@@ -10,12 +10,12 @@ import {AdminLogin} from "./components/AdminLogin";
 import {HomePage} from "./components/HomePage";
 import {MechanicUpsert} from "./components/MechanicUpsert"
 import {MechanicList} from "./components/MechanicList";
+import {User} from "./components/User";
 function App() {
   return (
     <Router>
       <Switch>
         <Route path="/create-user">
-        <AppNavBar></AppNavBar>
           <UserUpsert />
         </Route>
         <Route path="/list-user">
@@ -35,7 +35,7 @@ function App() {
         <AppNavBar></AppNavBar>
         </Route>
         <Route  path="/user">
-        <AppNavBar></AppNavBar>
+        <User/>
         </Route>
         <Route  path="/mechanic-list">
         <AppNavBar></AppNavBar>

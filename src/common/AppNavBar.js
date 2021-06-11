@@ -22,6 +22,9 @@ export function AppNavBar() {
           <Nav.Link as={Link} to="/mechanic-create">
             Create MECHANICS
           </Nav.Link>
+          <Nav.Link as={Link} to="/">
+            Log out
+          </Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
