@@ -16,12 +16,6 @@ export function AppNavBar() {
           <Nav.Link as={Link} to="/list-user">
             List USER
           </Nav.Link>
-          <Nav.Link as={Link} to="/mechanic-list">
-            List MECHANICS
-          </Nav.Link>
-          <Nav.Link as={Link} to="/mechanic-create">
-            Create MECHANICS
-          </Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

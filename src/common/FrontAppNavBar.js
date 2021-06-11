@@ -16,6 +16,9 @@ export function FrontAppNavBar() {
           <Nav.Link as={Link} to="/adminlogin">
             Admin LOGIN
           </Nav.Link>
+          <Nav.Link as={Link} to="/create-user">
+            Register
+          </Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

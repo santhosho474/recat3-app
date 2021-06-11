@@ -13,6 +13,7 @@ export function UserUpsert() {
 
   const [userName, setUserName] = useState(state.user.refuser.userName);
   const [userEmail, setUserEmail] = useState(state.user.refuser.userEmail);
+  const[type,setType]=useState("password");
   const [userPassword, setUserPassword] = useState(
     state.user.refuser.userPassword
   );
@@ -25,7 +26,18 @@ export function UserUpsert() {
 
   const UpdateUserName = (e) => setUserName(e.target.value);
   const UpdateUserEmail = (e) => setUserEmail(e.target.value);
-  const UpdateUserPassword = (e) => setUserPassword(e.target.value);
+  const UpdateUserPassword = (e) => {
+    setType(e.target.type);
+    setUserPassword(e.target.value)
+  };
+  const updateType=()=>{
+      if(type==="text"){
+          setType("password");
+      }
+      else{
+          setType("text");
+      }
+  }
   const UpdateUserMobile = (e) => setUserMobile(e.target.value);
   const UpdateUserType = (item) => setUserType(item);
 
@@ -132,7 +144,7 @@ export function UserUpsert() {
     <div className="row">
       <div className="col-3 col-md-3 d-none d-md-block"></div>
       <div className="col-12 col-md-6">
-        <h3 className="alert alert-secondary d-flex justify-content-center">
+        <h3 className="alert alert-warning d-flex justify-content-center">
           {state.user.refuser.userId ? "Update Details" : "Registration"}
         </h3>
 
@@ -161,7 +173,7 @@ export function UserUpsert() {
           </div>
           <div className="mb-1">
             <input
-              type="password"
+              type={type}
               value={userPassword}
               onChange={(e) => UpdateUserPassword(e)}
               className="form-control"
@@ -169,6 +181,7 @@ export function UserUpsert() {
               pattern="[a-zA-z0-9@#!$*&%]{8,12}"
               required
             />
+            <input type="checkbox" name="showbox" onClick={()=>updateType()}/>show password
           </div>
           <div className="mb-1">
             <input
@@ -225,14 +238,14 @@ export function UserUpsert() {
             {state.user.refuser.userId ? (
               <input
                 type="button"
-                className="btn btn-secondary w-100"
+                className="btn btn-success w-100"
                 value="Update Details"
                 onClick={(e) => updateUser(e)}
               />
             ) : (
               <input
                 type="button"
-                className="btn btn-secondary w-100"
+                className="btn btn-success w-100"
                 value="REGISTER"
                 onClick={(e) => register(e)}
               />

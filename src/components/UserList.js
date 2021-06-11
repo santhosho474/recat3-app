@@ -39,9 +39,9 @@ export function UserList() {
   return (
     <>
       <div className="row">
-        <div className="col-3 col-md-2 d-none d-md-block"></div>
-        <div className="col-12 col-md-8">
-          <h3 className="alert alert-secondary d-flex justify-content-center">
+        <div className="col-1 col-md-1 d-none d-md-block"></div>
+        <div className="col-12 col-md-10">
+          <h3 className="alert alert-warning d-flex justify-content-center">
             List of Users
           </h3>
 
@@ -66,21 +66,21 @@ export function UserList() {
                 
               </tr>
             </thead>
-            <tbody className="table table-bordered table-success">
+            <tbody className="table table-bordered ">
               {[...state.user.list].map((item, index) => (
                 <tr key={index}>
                   <th scope="row">{item.userId}</th>
                   <td>{item.userName}</td>
-                  <td>{item.userEmail}</td>
+                  <td>{"******@gmail.com"}</td>
                   <td>{item.userMobile}</td>
-                  <td>{item.userPassword}</td>
+                  <td>{"*********"}</td>
                   <td>{item.userType}</td>
                   <td>
                     <input
                       type="button"
                       onClick={() => updateUser(item)}
                       value="EDIT"
-                      className="btn btn-link alert alert-primary"
+                      className="btn btn-link"
                     />
                   </td>
                   <td>
@@ -88,7 +88,7 @@ export function UserList() {
                       type="button"
                       value="DELETE"
                       onClick={() => deleteUser(item, index)}
-                      className="btn btn-link alert alert-danger"
+                      className="btn btn-link text-danger"
                     />
                   </td>
                  
@@ -97,7 +97,7 @@ export function UserList() {
             </tbody>
           </table>
         </div>
-        <div className="col-3 col-md-2 d-none d-md-block"></div>
+        <div className="col-1 col-md-1 d-none d-md-block"></div>
       </div>
    
     </>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { AppNavBar } from "../common/AppNavBar";
+import { FrontAppNavBar } from "../common/FrontAppNavBar";
 import { UserLoginAction } from "../redux/UserLoginReducer";
 export const UserLogin = () => {
   const dispatch = useDispatch();
@@ -42,7 +42,7 @@ export const UserLogin = () => {
 
   if (state.UserLogin.loginAction === true) {
     if(state.UserLogin.userRefDetails.userName===userName && state.UserLogin.userRefDetails.userPassword===userPassword){
-    history.push("/list-user");
+    history.push("/user");
     }
     else{
     setErrorOperation(true);
@@ -51,10 +51,11 @@ export const UserLogin = () => {
 
   return (
     <div>
+      <FrontAppNavBar></FrontAppNavBar>
       <div className="row">
         <div className="col-3 col-md-3 d-none d-md-block"></div>
-        <div className="col-12 col-md-6">
-          <h3 className="alert alert-secondary mb-4">User Login</h3>
+        <div className="col-12 col-md-6 mt-3">
+          <h3 className="alert alert-warning mb-4">User Login</h3>
 
           {state.UserLogin.loginAction === false && errorOperation && (
             <div className="alert alert-danger">login failure</div>
@@ -84,7 +85,7 @@ export const UserLogin = () => {
           <div className="mb-2">
             <input
               type="button"
-              className="btn btn-outline-dark w-100"
+              className="btn btn-success w-100"
               value="Login"
               onClick={() => UserLoginFunction()}
             />

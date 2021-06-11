@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { AdminLoginAction } from "../redux/AdminLoginReducer";
 import { AppNavBar} from "../common/AppNavBar"
+import { FrontAppNavBar } from "../common/FrontAppNavBar";
 
 export function AdminLogin() {
   const dispatch = useDispatch();
@@ -45,7 +46,7 @@ export function AdminLogin() {
 
  if (state.UserLogin.loginAction === true) {
     if(state.UserLogin.userRefDetails.userName===userName && state.UserLogin.userRefDetails.userPassword===userPassword){
-    history.push("/");
+    history.push("/admin");
     }
     else{
     setErrorOperation(true);
@@ -54,10 +55,11 @@ export function AdminLogin() {
 
   return (
     <div>
+      <FrontAppNavBar></FrontAppNavBar>
       <div className="row">
         <div className="col-3 col-md-3 d-none d-md-block"></div>
         <div className="col-12 col-md-6">
-          <h3 className="alert alert-secondary">Admin Login</h3>
+          <h3 className="alert alert-warning">Admin Login</h3>
 
           {state.AdminLogin.loginAction === false && errorOperation && (
             <div className="alert alert-danger">login failure</div>
@@ -80,7 +82,7 @@ export function AdminLogin() {
             <input type="checkbox" name="showbox" onClick={()=>updateType()}/>show password
           <input
             type="button"
-            className="btn btn-outline-dark w-100"
+            className="btn btn-success w-100"
             value="Login"
             onClick={() => AdminLoginFunction()}
           />
